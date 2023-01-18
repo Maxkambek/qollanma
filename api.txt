@@ -1,0 +1,54 @@
+
+1 card-create
+
+https://backend.nurumrahajj.uz/en/order/card-create/   => request POST
+
+## request
+{
+   "number":"8600069195406311",  ## karta raqami 16 talik plastik karta
+   "expire":"0399"   ## kartani amal qilish muddati
+
+}
+
+## response
+{
+    "message": "Verification code has sent",
+    "token": "63bfaace07dfc0540ade0fc8_otofrKU3u5I44F23NvAtnaeqdoBYpz3vs5fJ8fHt2dZhyrPrw1GOAb4ooPmYmVsSmmxXD0nisWz7WYpYzTyrThFjUzWpRdKNca4RbYbjDVkKaFirHdo9drdVMvz2hp1os8m0To6YvmYeiMBBMjhIdJSQiKzM9viFjSrWuSoVWhuoFiOvmcYup8uwADEyCHab5pKTNqUswvP9SySOI9gBBic9F76TYx7HwJQwjBgWRq2c1XzrVwRkX8nh8vRqw6y6o3ttjgDpoWMm4MsWiAQ1Oq1xYuT1tg3GJraxdAzJSmObd4myQ2Xz0t1Cd49YzTgmU6rMnwogqWTBDFoIMAMa3GBrVC7BBkS8cHaDrUSSiZq8heUQYDfOZT31r6vaFrN3oXiBcd"
+}  ## shu tokenni saqlab olasz i telefonga kod boradi
+
+
+
+
+
+2 - verify-phone
+
+https://backend.nurumrahajj.uz/en/order/verify-phone/   => request POST
+
+
+## request
+{
+"verify_code":"666666",
+"token":"63bfaace07dfc0540ade0fc8_otofrKU3u5I44F23NvAtnaeqdoBYpz3vs5fJ8fHt2dZhyrPrw1GOAb4ooPmYmVsSmmxXD0nisWz7WYpYzTyrThFjUzWpRdKNca4RbYbjDVkKaFirHdo9drdVMvz2hp1os8m0To6YvmYeiMBBMjhIdJSQiKzM9viFjSrWuSoVWhuoFiOvmcYup8uwADEyCHab5pKTNqUswvP9SySOI9gBBic9F76TYx7HwJQwjBgWRq2c1XzrVwRkX8nh8vRqw6y6o3ttjgDpoWMm4MsWiAQ1Oq1xYuT1tg3GJraxdAzJSmObd4myQ2Xz0t1Cd49YzTgmU6rMnwogqWTBDFoIMAMa3GBrVC7BBkS8cHaDrUSSiZq8heUQYDfOZT31r6vaFrN3oXiBcd"
+}
+
+
+## response
+"{'jsonrpc': '2.0',
+'result': {'card':
+{'number': '860006******6311', 'expire': '03/99', 'token': '63bfaace07dfc0540ade0fc8_otofrKU3u5I44F23NvAtnaeqdoBYpz3vs5fJ8fHt2dZhyrPrw1GOAb4ooPmYmVsSmmxXD0nisWz7WYpYzTyrThFjUzWpRdKNca4RbYbjDVkKaFirHdo9drdVMvz2hp1os8m0To6YvmYeiMBBMjhIdJSQiKzM9viFjSrWuSoVWhuoFiOvmcYup8uwADEyCHab5pKTNqUswvP9SySOI9gBBic9F76TYx7HwJQwjBgWRq2c1XzrVwRkX8nh8vRqw6y6o3ttjgDpoWMm4MsWiAQ1Oq1xYuT1tg3GJraxdAzJSmObd4myQ2Xz0t1Cd49YzTgmU6rMnwogqWTBDFoIMAMa3GBrVC7BBkS8cHaDrUSSiZq8heUQYDfOZT31r6vaFrN3oXiBcd', 'recurrent': True, 'verify': True, 'type': '22618'}}}"
+
+
+
+
+
+3 - payment
+
+https://backend.nurumrahajj.uz/en/order/payment/   => request POST
+
+{
+"offer_id":4,   ## bu anu 3 ta offer ya'ni 3 ta tour boridiyu shularni qaysini bossa shuni ID si buni boshida saqlab olish kerak
+"order_id":1,   ##  bu order id ya'ni order create bo'ladiyu rasm ism familiya bilan shundagi order create qiganda responseda ID si keladi shu ID
+"token":"63bfaace07dfc0540ade0fc8_otofrKU3u5I44F23NvAtnaeqdoBYpz3vs5fJ8fHt2dZhyrPrw1GOAb4ooPmYmVsSmmxXD0nisWz7WYpYzTyrThFjUzWpRdKNca4RbYbjDVkKaFirHdo9drdVMvz2hp1os8m0To6YvmYeiMBBMjhIdJSQiKzM9viFjSrWuSoVWhuoFiOvmcYup8uwADEyCHab5pKTNqUswvP9SySOI9gBBic9F76TYx7HwJQwjBgWRq2c1XzrVwRkX8nh8vRqw6y6o3ttjgDpoWMm4MsWiAQ1Oq1xYuT1tg3GJraxdAzJSmObd4myQ2Xz0t1Cd49YzTgmU6rMnwogqWTBDFoIMAMa3GBrVC7BBkS8cHaDrUSSiZq8heUQYDfOZT31r6vaFrN3oXiBcd"
+}
+
+## token shu birinchi token
